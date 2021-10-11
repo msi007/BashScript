@@ -23,8 +23,8 @@ current_time=$(date '+%Y-%m-%d_%H:%M:%S')
 function jar_change(){
 	echo -e " ## $(Green) Signaling jar upadting.........\\033[0;32m#"
 	cd $signaling_loc
-	mv TelSwitchPlusSignaling.jar iTelSwitchPlusSignaling.jar_$current_time
-	mv $jar_location/TelSwitchPlusSignaling.jar .
+	mv iTelSwitchPlusSignaling.jar iTelSwitchPlusSignaling.jar_$current_time
+	mv $jar_location/iTelSwitchPlusSignaling.jar .
 	echo -e "## ${Green} Signaling jar updated susccessfully   \033[0;32m"
 signaling_start
 }
