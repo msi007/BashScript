@@ -21,7 +21,7 @@ current_time=$(date '+%Y-%m-%d_%H:%M:%S')
 			BGreen='\033[1;32m'       # Green
 
 function jar_change(){
-	echo -e " ## $(Green) Signaling jar upadting.........\\033[0;32m#"
+	echo -e "## ${Green} Signaling jar upadting.........\\033[0;32m#"
 	cd $signaling_loc
 	mv iTelSwitchPlusSignaling.jar iTelSwitchPlusSignaling.jar_$current_time
 	mv $jar_location/iTelSwitchPlusSignaling.jar .
@@ -37,10 +37,10 @@ signaling_statuscheck
 }
 
 function signaling_statuscheck(){
-signaling_staus=$(cat $signaling_loc/iTelSwitchPlusSignaling.log  | grep "started successfully")
-	if [ ! -z $signaling_staus ]; then
-	echo "### ${BGreen} Switch Signaling started successfully ..\033[1;31m"
-		else 
+signaling_staus=$(cat $signaling_loc/iTelSwitchPlusSignaling.log  | grep -w "started successfully")
+	if [ ! -z "{$signaling_staus}" ]; then
+	    echo "### ${BGreen} Switch Signaling started successfully ..\033[1;31m"
+	else 
 		echo "### ${BRed} Faled to start switch ..\033[1;31m"
 		
 	fi
