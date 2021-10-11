@@ -5,8 +5,8 @@ modified="# Modified_11102021_10_00PM";
 
 #Variable declaration
 LOGFILE="/usr/src/jar_update.log"
-jar_location="/tmp/MasterPath/workspace/TestPipelineMultiLabelWithSCM"
-signaling_loc="/usr/local/iTelSwitchPlusSignalingIM"
+jar_location="/home/workspace/Project_switchJar_Update"
+signaling_loc="/usr/local/iTelSwitchPlusSignalingwintersoldier705"
 current_time=$(date '+%Y-%m-%d_%H:%M:%S')
 
 #No Colors
@@ -38,7 +38,7 @@ signaling_statuscheck
 
 function signaling_statuscheck(){
 signaling_staus=$(cat $signaling_loc/iTelSwitchPlusSignaling.log  | grep "started successfully")
-	if [ -z $signaling_staus ]; then
+	if [ ! -z $signaling_staus ]; then
 	echo "### ${BGreen} Switch Signaling started successfully ..\033[1;31m"
 		else 
 		echo "### ${BRed} Faled to start switch ..\033[1;31m"
