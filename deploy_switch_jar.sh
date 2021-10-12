@@ -25,7 +25,7 @@ function jar_change(){
 	cd $signaling_loc
 	mv iTelSwitchPlusSignaling.jar iTelSwitchPlusSignaling.jar_$current_time
 	mv $jar_location/iTelSwitchPlusSignaling.jar .
-	echo -e "## ${Green} Signaling jar updated susccessfully   \033[0;32m"
+	echo -e "## ${Green} Signaling jar updated susccessfully   \033[0;32m";
 signaling_start
 }
 
@@ -39,15 +39,15 @@ signaling_statuscheck
 function signaling_statuscheck(){
 signaling_staus=$(cat $signaling_loc/iTelSwitchPlusSignaling.log  | grep -w "started successfully")
 	if [ ! -z "{$signaling_staus}" ]; then
-	    echo "### ${BGreen} Switch Signaling started successfully ..\033[1;31m"
+	    echo "### ${BGreen} Switch Signaling started successfully ..\033[1;31m";
 	else 
-		echo "### ${BRed} Faled to start switch ..\033[1;31m"
+		echo "### ${BRed} Faled to start switch ..\033[1;31m";
 		
 	fi
 }
 
 function stop_switch(){
-		echo -e " ## ${Red}Switch Signaling going to stop...   \033[0;32m#"
+		echo -e " ## ${Red}Switch Signaling going to stop...   \033[0;32m#";
 		cd $signaling_loc
 		`sh shutdowniTelSwitchPlusSignaling.sh > /dev/null 2>&1`
 		 sleep 1
@@ -61,7 +61,7 @@ function stop_switch(){
 		 echo "Switch stopped Succesfully....."
 		     if [ ! -z $switch_procces_id ];then
 		    `kill -9 $process_id > /dev/null/ 2>&1`
-			 echo " ## {Red} Switch stopped Succesfully.....\\033[0;32m#"
+			 echo " ## {Red} Switch stopped Succesfully.....\\033[0;32m#";
 		     fi
 		 fi
 jar_change
