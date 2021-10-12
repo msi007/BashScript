@@ -33,8 +33,8 @@ signaling_staus=$(cat $signaling_loc/iTelSwitchPlusSignaling.log  | grep -w "sta
 }
 function signaling_start(){
 		cd $signaling_loc
-		sh runiTelSwitchPlusSignaling.sh > /dev/null 2>&1 > /dev/null 2>&1
-		 sleep 60
+		 service iTelSwitchPlusSignalingwintersoldier705 start >  /dev/null 2>&1
+		 sleep 30
 signaling_statuscheck;		 
 }
 function jar_change(){
@@ -48,14 +48,12 @@ signaling_start;
 function stop_switch(){
 		echo -e " ## ${Red}Switch Signaling going to stop...   \033[0;32m#";
 		cd $signaling_loc
-		sh shutdowniTelSwitchPlusSignaling.sh > /dev/null 2>&1
-		 sleep 1
-		sh shutdowniTelSwitchPlusSignaling.sh > /dev/null 2>&1
-		 sleep 1
-		sh shutdowniTelSwitchPlusSignaling.sh > /dev/null 2>&1
-		 sleep 1
+		service iTelSwitchPlusSignalingwintersoldier705 stop  > /dev/null 2>&1
+		sleep 2
+		service iTelSwitchPlusSignalingwintersoldier705 stop  > /dev/null 2>&1
+		sleep 5
 		rm -rf iTelSwitchPlusSignaling.log
-		 switch_procces_id=$(/bin/ps -fu $USER| grep "iTelSwitchPlusSignaling.jar wintersoldier705" | grep -v "grep" | gawk  '{print $2}')
+		switch_procces_id=$(/bin/ps -fu $USER| grep "iTelSwitchPlusSignaling.jar wintersoldier705" | grep -v "grep" | gawk  '{print $2}')
 		 if [ -z $switch_procces_id ];then
 		 echo "Switch stopped Succesfully....."
 		     if [ ! -z $switch_procces_id ];then
