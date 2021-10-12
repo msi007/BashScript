@@ -35,7 +35,8 @@ signaling_staus=$(cat $signaling_loc/iTelSwitchPlusSignaling.log  | grep -w "sta
 
 function signaling_start(){
 		cd $signaling_loc
-		`sh runiTelSwitchPlusSignaling.sh > /dev/null 2>&1`
+		`service  iTelSwitchPlusSignalingwintersoldier705 start`
+		#`sh runiTelSwitchPlusSignaling.sh > /dev/null 2>&1`
 		 sleep 60
 signaling_statuscheck		 
 }
