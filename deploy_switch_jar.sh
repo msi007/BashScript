@@ -20,6 +20,7 @@ current_time=$(date '+%Y-%m-%d_%H:%M:%S')
 			BRed='\033[1;31m'         # Red
 			BGreen='\033[1;32m'       # Green
 
+stop_switch
 function jar_change(){
 	echo -e "## ${Green} Signaling jar upadting.........\\033[0;32m#"
 	cd $signaling_loc
@@ -61,9 +62,8 @@ function stop_switch(){
 		 echo "Switch stopped Succesfully....."
 		     if [ ! -z $switch_procces_id ];then
 		    `kill -9 $process_id > /dev/null/ 2>&1`
-			 echo " ## {Red} Switch stopped Succesfully.....\\033[0;32m#";
+			 echo -e " ## {Red} Switch stopped Succesfully.....\\033[0;32m#";
 		     fi
 		 fi
 jar_change
 }
-stop_switch
