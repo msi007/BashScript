@@ -65,7 +65,7 @@ function stop_switch(){
 		 if [ -z $switch_procces_id ];then
 		 echo "Switch stopped Succesfully....."
 		     if [ ! -z $switch_procces_id ];then
-		    `kill -9 $process_id > /dev/null/ 2>&1`
+		    `kill -9 $process_id > /dev/null 2>&1`
 			 echo -e " ## {Red} Switch stopped Succesfully.....\\033[0;32m#";
 		     fi
 		 fi
