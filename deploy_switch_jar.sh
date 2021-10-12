@@ -20,22 +20,7 @@ current_time=$(date '+%Y-%m-%d_%H:%M:%S')
 			BRed='\033[1;31m'         # Red
 			BGreen='\033[1;32m'       # Green
 
-stop_switch
-function jar_change(){
-	echo -e "## ${Green} Signaling jar upadting.........\\033[0;32m#"
-	cd $signaling_loc
-	mv iTelSwitchPlusSignaling.jar iTelSwitchPlusSignaling.jar_$current_time
-	mv $jar_location/iTelSwitchPlusSignaling.jar .
-	echo -e "## ${Green} Signaling jar updated susccessfully   \033[0;32m";
-signaling_start
-}
 
-function signaling_start(){
-		cd $signaling_loc
-		`sh runiTelSwitchPlusSignaling.sh > /dev/null 2>&1`
-		 sleep 60
-signaling_statuscheck		 
-}
 
 function signaling_statuscheck(){
 signaling_staus=$(cat $signaling_loc/iTelSwitchPlusSignaling.log  | grep -w "started successfully")
@@ -46,6 +31,25 @@ signaling_staus=$(cat $signaling_loc/iTelSwitchPlusSignaling.log  | grep -w "sta
 		
 	fi
 }
+
+
+function signaling_start(){
+		cd $signaling_loc
+		`sh runiTelSwitchPlusSignaling.sh > /dev/null 2>&1`
+		 sleep 60
+signaling_statuscheck		 
+}
+
+
+function jar_change(){
+	echo -e "## ${Green} Signaling jar upadting.........\\033[0;32m#"
+	cd $signaling_loc
+	mv iTelSwitchPlusSignaling.jar iTelSwitchPlusSignaling.jar_$current_time
+	mv $jar_location/iTelSwitchPlusSignaling.jar .
+	echo -e "## ${Green} Signaling jar updated susccessfully   \033[0;32m";
+signaling_start
+}
+
 
 function stop_switch(){
 		echo -e " ## ${Red}Switch Signaling going to stop...   \033[0;32m#";
@@ -67,3 +71,4 @@ function stop_switch(){
 		 fi
 jar_change
 }
+stop_switch
